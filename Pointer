@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <iostream>
+
+void update(int *a,int *b) {
+    // Complete this function 
+    int **tempA; //Created temp pointer pointer to hold a
+    int **tempB; //Created temp pointer pointer to hold b
+    int **tempAnsA; //Created a temp pointer pointer to hold the answer for a
+    int **tempAnsB; //Created a temp pointer pointer to hold the answer for b
+    tempA = &a; //Set address of a to TempA
+    tempB = &b; //Set address of b to tempB
+    
+    **tempAnsA = **tempA + **tempB; //TempAnsA = tempA + tempB. A and B are not getting touched
+    **tempAnsB = **tempA - **tempB;// Same as above except for b
+    *a = **tempAnsA; //Then set pointer a to pointer pointer answer 
+    *b = **tempAnsB; //Set pointer b to pointer pointer anser B
+    
+    //Simple check to make b positive if negative
+    if(*b < 0){
+        *b = *b*-1;
+    }
+}
+
+int main() {
+    int a, b;
+    int *pa = &a, *pb = &b;
+    
+    scanf("%d %d", &a, &b);
+    update(pa, pb);
+    printf("%d\n%d", a, b);
+
+    return 0;
+}
