@@ -1,0 +1,30 @@
+/*
+  Insert Node at the begining of a linked list
+  Initially head pointer argument could be NULL for empty list
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+return back the pointer to the head of the linked list in the below method.
+*/
+Node* Insert(Node *head,int data)
+{
+  //Create a newHead node to insert
+  Node *newHead = new Node;
+    newHead->data = data; //Set its data field to whatever comes through parameter
+    
+    //If list is empty then make newHead's next pointer point to NULL and make newHead the head
+    if(head == NULL){
+        newHead->next = NULL;
+        head = newHead;
+    }
+    //If not empty
+    else{
+        newHead->next = head; //newHead's next points to the node that is currently "head" basically putting it behind the head
+        head = newHead; //After inserting make the newHead node the head
+    }
+    return head;
+  
+}
