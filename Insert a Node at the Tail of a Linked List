@@ -1,0 +1,40 @@
+/*
+  Insert Node at the end of a linked list 
+  head pointer input could be NULL as well for empty list
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+*/
+Node* Insert(Node *head,int data)
+{
+  //Create a new node called last
+  Node *last = new Node;
+    last->data = data; //Store parameter data into its data field
+    last->next = NULL; // make the next pointer point to NULL since inserting into end
+    
+    //If list is empty then insert last and make last the head
+    if(head == NULL){
+        head = last;
+    }
+    //If not empty
+    else{
+        //Make new temporary ndoe to traverse
+        Node *temp = new Node;
+        temp = head; //Make it equal to head to start at beginning
+        
+        //Allows for traversal while the next pointer is not pointing to null keep going
+        while(temp->next != NULL){
+            temp = temp->next; //sets temp to the next node in the list
+        }
+        //When at the end insert last and have the previous nodes' next pointer eqaul to it
+        //or appends the last node with last
+        temp->next = last;
+    }
+    
+   
+    return head;
+    
+}
