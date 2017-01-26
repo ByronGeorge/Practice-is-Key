@@ -1,0 +1,62 @@
+//Passed 7 out of 13 test cases
+
+class Person{
+    protected:
+    string name = "";
+    int age = 0;
+   
+    public:
+    
+    //Virtual functions allows child classes to override the function
+    virtual void getdata(){}; 
+    virtual void putdata(){};
+};
+
+static int prof_id, stud_id = 0;
+
+class Professor : public Person{
+    int publications, cur_id = 0;
+    public:
+    
+    Professor(){
+        
+        ++prof_id;
+        
+    }
+    
+    void getdata(){
+        cin >> name >> age >> publications;
+        cur_id = prof_id;
+    }
+    void putdata(){
+        cout << name << " " << age << " " << publications << " " << cur_id << endl;
+    }
+    
+    
+};
+
+class Student : public Person{
+    int marks[6];
+    int mark, sumMarks, cur_id = 0;
+    
+    public:
+    
+    Student(){
+        ++stud_id; 
+    }
+    
+    void getdata(){
+        cin >> name >> age;
+        for(int i = 0; i < 6; i++){
+            cin >> mark;
+            sumMarks += mark;
+            cur_id = stud_id;
+        }
+    }
+    void putdata(){
+        cout << name << " " << age << " " << sumMarks << " " << cur_id << endl;
+       
+    }
+   
+    
+};
