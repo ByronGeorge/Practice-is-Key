@@ -1,0 +1,8 @@
+
+ //Book is an abstract class and it can't be instatntiated 
+ //MyBook makes the class able to be instantiated also making setTitle a void from abstract lets it get used
+class MyBook extends Book{ 
+    void setTitle(String s){
+        this.title = s;
+    }
+}
